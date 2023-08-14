@@ -8,8 +8,10 @@ class Solution {
 			String str = sc.next(); // 문자열 입력 받기
 			int ans = 1;
 			for (int i = 0; i < str.length() / 2; i++) {
-				if (str.charAt(i) != str.charAt(str.length() - i - 1))
+				if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
 					ans = 0;
+					break;
+				}
 			}
 			System.out.println("#" + test_case + " " + ans);
 		}
