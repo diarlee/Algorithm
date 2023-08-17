@@ -5,24 +5,17 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int M = sc.nextInt();
-		int[] nums = new int[N];
-		for (int k = 0; k < N; k++) { // 입력받음
-			nums[k] = sc.nextInt(); // 5 4 3 2 1
-		}
-
-		for (int l = 1; l < N; l++) { // 배열 누적 덧셈
-			nums[l] += nums[l - 1]; // 5 9 12 14 15
-		}
-
-		for (int p = 0; p < M; p++) {
-			int i = sc.nextInt();
-			int j = sc.nextInt();
-			int sum = 0;
-			if (i == 1)
-				sum = nums[j - 1];
-			else
-				sum = nums[j - 1] - nums[i - 2];
-			System.out.println(sum);
+		int[] nums = new int[N]; // input 받음
+		for (int k = 0; k < N; k++) 
+			nums[k] = sc.nextInt();
+		int[] cumNums = new int[N]; // input 누적합 구하기
+		cumNums[0] = nums[0];
+		for (int k = 1; k < N; k++)
+			cumNums[k] = cumNums[k - 1] + nums[k];
+		for (int k = 0; k < M; k++) {
+			int i = sc.nextInt(), j = sc.nextInt();
+			if (i == 1) System.out.println(cumNums[j - 1]);
+			else System.out.println(cumNums[j - 1] - cumNums[i - 2]);
 		}
 	}
 }
