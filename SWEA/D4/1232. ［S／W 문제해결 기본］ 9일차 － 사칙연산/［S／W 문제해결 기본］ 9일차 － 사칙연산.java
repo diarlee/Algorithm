@@ -34,7 +34,7 @@ public class Solution {
 				arr.add(Arrays.asList(br.readLine().split(" ")));
 			}
 			Node node = creNode(arr, arr.get(0)); // 재귀적으로 노드를 만들면서 노드 간 연결
-			System.out.println("#" + t + " " + inOrder(N, node));
+			System.out.println("#" + t + " " + postOrder(N, node));
 		}
 	}
 	public static Node creNode(List<List<String>> arr, List<String> input) { // 재귀적으로 노드를 만들고 연결하는 메서드
@@ -47,11 +47,11 @@ public class Solution {
 		Node newNode = new Node(Integer.parseInt(input.get(0)), input.get(1), null, null);
 		return newNode;
 	}
-	public static int inOrder(int N, Node node) {
+	public static int postOrder(int N, Node node) {
 		if (node == null) return 0;
 		// 유효한 노드일경우
-		int l = inOrder(N, node.left); // L
-		int r = inOrder(N, node.right); //R
+		int l = postOrder(N, node.left); // L
+		int r = postOrder(N, node.right); //R
 		if (node.value.equals("+")) return l + r;
 		if (node.value.equals("-")) return l - r;
 		if (node.value.equals("*")) return l * r;
