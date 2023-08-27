@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class Solution {
 	public static boolean IsDanJo(int num) { // 단조 증가하는 수인지 확인
 		int _tmp = num;
-		List<Integer> arrNum = new ArrayList<>();
+        int pre = -1, cur = Integer.MAX_VALUE;
 		while (_tmp > 0) {
-			arrNum.add(0, _tmp % 10); // 일의 자리부터 배열에 담기
-			if (arrNum.size() > 1 && arrNum.get(0) > arrNum.get(1)) return false; // 낮은 자리수보다 높은 자리수 값이 더 큼
+            pre = cur;
+            cur = _tmp % 10; // 일의 자리부터 가져옴
+            if (cur > pre) return false; // // 낮은 자리수보다 높은 자리수 값이 더 큼
 			_tmp /= 10;
 		}
 		return true;
