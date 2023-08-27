@@ -27,8 +27,7 @@ public class Solution {
 			for (int i = 0; i < N - 1; i++) {
 				for (int j = i + 1; j < N; j++) {
 					int val = nums[i] * nums[j];
-					if (val < 10 && val > max) max = val;
-					if (val >= 10 && val > max && IsDanJo(val) == true) max = val;
+					if (val > max && IsDanJo(val) == true) max = val;
 				}
 			}
 			System.out.println("#" + t + " " + max);
