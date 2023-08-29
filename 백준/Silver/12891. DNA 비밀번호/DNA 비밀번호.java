@@ -26,19 +26,16 @@ public class Main {
 		int idx = 0; // 윈도우 시작위치
 		int cnt = 0;
 		while (idx + P - 1 < S) { // idx + P - 1: 윈도우 끝위치
-			int[] tmpCondi = condi.clone(); // 깊은 복사
-			int[] tmpCounts = counts.clone(); // 깊은 복사
 			int check = 1;
 			for (int i = 0; i < 4; i++) { // 최소 개수 조건 만족하는지
-				tmpCounts[i] -= tmpCondi[i];
-				if (tmpCounts[i] < 0) {
+				if (counts[i] - condi[i] < 0) {
 					check = 0;
 					break;
 				}
 			}
 			if (check == 1) cnt++;
 			if (idx + P == S) break;
-			
+			// 윈도우 슬라이드
 			char removed = str.charAt(idx++);
 			if (removed == 'A') counts[0]--;
 			else if (removed == 'C') counts[1]--;
