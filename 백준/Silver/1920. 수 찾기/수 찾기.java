@@ -14,13 +14,18 @@ public class Main {
 		Arrays.sort(arr);
 		int M = Integer.parseInt(br.readLine());
 		st = new StringTokenizer(br.readLine());
+		int left;
+		int right;
+		int num;
+		int check;
+		int mid;
 		for (int i = 0; i < M; i++) {
-			int left = 0;
-			int right = N - 1;
-			int num = Integer.parseInt(st.nextToken());
-			int check = 0;
+			left = 0;
+			right = N - 1;
+			num = Integer.parseInt(st.nextToken());
+			check = 0;
 			while (left <= right) {
-				int mid = (left + right) / 2;
+				mid = (left + right) / 2;
 				if (arr[mid] == num) {
 					check = 1;
 					System.out.println(check);
