@@ -11,12 +11,6 @@ public class Solution {
     public static void isPath(int a) { // a : 탐색 시작정점
     	visited[a] = 1; // 방문처리
         cnt++;
-        if (cnt == N) { // 모든 정점 방문함
-            max = cnt;
-            cnt--;
-            visited[a] = 0;
-            return;
-        }
         for (int j = 1; j < N + 1; j++) { // a 정점의 간선들 탐색
             if (adjArr[a][j] == 1 && visited[j] == 0) { // 방문하지 않은 간선이 있으면
                 isPath(j);
