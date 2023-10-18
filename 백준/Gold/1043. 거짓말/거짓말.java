@@ -37,10 +37,11 @@ public class Main {
         }
         
         for (int i = 1; i <= N; i++) {
-        	if (known[i]) known[findSet(i)] = true;
-        	if (known[findSet(i)]) known[i] = true;
+        	if (known[i]) known[findSet(i)] = true; // 자식이 진실을 알 경우 부모도 앎
+        	if (known[findSet(i)]) known[i] = true; // 부모가 진실을 알 경우 자신도 앎
         }
         
+        // 중간 자식이 진실을 아는지 갱신이 안됬을 수도 있기 때문에 한번 더 반복
         for (int i = N; i >= 0; i--) {
         	if (known[i]) known[findSet(i)] = true;
         	if (known[findSet(i)]) known[i] = true;
