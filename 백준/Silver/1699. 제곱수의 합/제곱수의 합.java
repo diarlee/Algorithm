@@ -8,10 +8,6 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int[] dp = new int[100001];
 
-        for (int i = 1; i <= Math.sqrt(100000); i++) {
-        	dp[i * i] = 1;
-        }
-        
         for (int i = 1; i <= 100000; i++) {
         	dp[i] = i;
         	int num = 2;
