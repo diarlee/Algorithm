@@ -1,0 +1,5 @@
+-- 코드를 작성해주세요
+SELECT DI.ID, DI.EMAIL, DI.FIRST_NAME, DI.LAST_NAME 
+FROM DEVELOPER_INFOS as DI
+WHERE SKILL_1 = "Python" or SKILL_2 = "Python" or SKILL_3 = "Python"
+ORDER BY ID;
