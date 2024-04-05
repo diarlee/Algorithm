@@ -23,11 +23,7 @@ public class Main {
 			}
 		}
 		
-		for (int i = 0; i < N; i++) {
-			visited[i] = true;
-			dfs(i, i, 0, 0);
-			visited[i] = false;
-		}
+		dfs(0, 0, 0, 0);
 		System.out.println(min);
 	}
 	
