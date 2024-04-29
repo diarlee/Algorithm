@@ -21,8 +21,8 @@ public class Main {
 		int sum = 0;
 		int cnt = 0;
 		for (int i = 2; i <= 4000000; i++) {
+			if (i > N) break;
 			if (!primes[i]) continue;
-
 			if (sum == N) {
 				cnt++;
 			}
