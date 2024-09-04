@@ -9,7 +9,7 @@ public class Main {
 	static boolean[] checked;
 	static int[] dr = {0, 1, 0, -1};
 	static int[] dc = {1, 0, -1, 0};
-	static int cnt;
+	static int level;
 	static int result;
 	
 	public static void main(String[] args) throws IOException {
@@ -26,7 +26,7 @@ public class Main {
 		}
 		visited = new boolean[R][C];
 		checked = new boolean[26];
-		cnt = 0;
+		level = 0;
 		result = 0;
 		dfs(0, 0);
 		System.out.println(result);
@@ -35,8 +35,9 @@ public class Main {
 	static void dfs(int r, int c) {
 		visited[r][c] = true;
 		checked[map[r][c] - 'A'] = true;
-		cnt++;
-		result = Math.max(result, cnt);
+		level++;
+		result = Math.max(result, level);
+		if (result == 26) return;
 		int nr, nc;
 		for (int i = 0; i < 4; i++) {
 			nr = r + dr[i];
@@ -46,7 +47,7 @@ public class Main {
 				dfs(nr, nc);
 			}
 		}
-		cnt--;
+		level--;
 		checked[map[r][c] - 'A'] = false;
 		visited[r][c] = false;
 	}
