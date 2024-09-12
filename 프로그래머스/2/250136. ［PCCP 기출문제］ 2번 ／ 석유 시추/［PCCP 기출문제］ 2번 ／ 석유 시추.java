@@ -35,26 +35,17 @@ class Solution {
             }
             answer = Math.max(answer, sum);
         }
-        // for (int i = 0; i < n; i++){
-        //     for (int j = 0; j < m; j++){
-        //         System.out.print(land[i][j] + " ");
-        //     }
-        //     System.out.println();
-        // }
-        
         return answer;
     }
     
     static void bfs(int[][] land, int r, int c, int idx){
         int cnt = 0;
         Queue<Integer[]> queue = new LinkedList<>();
-        Stack<Integer[]> stack = new Stack<>();
         queue.add(new Integer[] {r, c});
         visited[r][c] = true;
         while (!queue.isEmpty()){
             Integer[] pos = queue.poll();
             land[pos[0]][pos[1]] = idx;
-            // stack.push(pos);
             cnt++;
             int nr, nc;
             for (int i = 0; i < 4; i++){
@@ -67,11 +58,6 @@ class Solution {
                 }
             }
         }
-        // while (!stack.isEmpty()){
-        //     Integer[] pos = stack.pop();
-        //     land[pos[0]][pos[1]] = cnt;
-        //     idxLand[pos[0]][pos[1]] = idx;
-        // }
         sizeLand[idx] = cnt;
     }
 }
